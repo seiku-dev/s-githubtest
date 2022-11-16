@@ -42,7 +42,7 @@ def main(argv):
   service = build('androidpublisher', 'v3', http=http)
   package_name = 'jp.co.githubtestproject'
   aab_file = flags.aab_file
-  print('XXXXXXXXXX：3')
+  print('XXXXXXXXXX：3:aab_file:' % aab_file)
 
   try:
     edit_request = service.edits().insert(body={}, packageName='jp.co.githubtestproject')
