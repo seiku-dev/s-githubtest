@@ -1,4 +1,4 @@
-package com.example.githubtestproject.ui.dashboard
+package jp.co.githubtestproject.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

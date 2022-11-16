@@ -1,4 +1,4 @@
-package com.example.githubtestproject.ui.notifications
+package jp.co.githubtestproject.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

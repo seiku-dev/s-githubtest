@@ -1,4 +1,4 @@
-package com.example.githubtestproject
+package jp.co.githubtestproject
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.githubtestproject.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import jp.co.githubtestproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

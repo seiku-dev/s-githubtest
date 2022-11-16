@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.githubtestproject'
+    namespace 'jp.co.githubtestproject'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.githubtestproject"
+        applicationId "jp.co.githubtestproject"
         minSdk 21
         targetSdk 32
         versionCode 1

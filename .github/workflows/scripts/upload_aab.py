@@ -14,7 +14,7 @@ TRACK = 'internal'  # or can be 'alpha', beta', 'production' or 'rollout'
 # workflow.yamlからの入力受付用
 argparser = argparse.ArgumentParser(add_help=False)
 # argparser.add_argument('package_name',
-#                        default='com.example.githubtestproject',
+#                        default='jp.co.githubtestproject',
 #                        help='The package name. Example: com.android.sample')
 argparser.add_argument('aab_file',
                        nargs='?',
@@ -38,11 +38,11 @@ def main(argv):
   http = credentials.authorize(http)
 
   service = build('androidpublisher', 'v3', http=http)
-  package_name = 'com.example.githubtestproject'
+  package_name = 'jp.co.githubtestproject'
   aab_file = flags.aab_file
 
   try:
-    edit_request = service.edits().insert(body={}, packageName='com.example.githubtestproject')
+    edit_request = service.edits().insert(body={}, packageName='jp.co.githubtestproject')
     result = edit_request.execute()
     edit_id = result['id']
 
@@ -52,7 +52,7 @@ def main(argv):
     media = MediaFileUpload(aab_file, mimetype='application/octet-stream', resumable=True)
     aab_response = service.edits().bundles().upload(
         editId=edit_id,
-        packageName='com.example.githubtestproject',
+        packageName='jp.co.githubtestproject',
         media_body=media).execute()
 
     print('Version code %d has been uploaded' % aab_response['versionCode'])
@@ -61,7 +61,7 @@ def main(argv):
     track_response = service.edits().tracks().update(
         editId=edit_id,
         track=TRACK,
-        packageName='com.example.githubtestproject',
+        packageName='jp.co.githubtestproject',
         body={u'releases': [{
             u'name': u'アップロード時の文言を指定',
             u'versionCodes': [str(aab_response['versionCode'])],
@@ -73,7 +73,7 @@ def main(argv):
 
     # Transactionのcommit
     commit_request = service.edits().commit(
-        editId=edit_id, packageName='com.example.githubtestproject').execute()
+        editId=edit_id, packageName='jp.co.githubtestproject').execute()
 
     print('Edit "%s" has been committed' % (commit_request['id']))
 

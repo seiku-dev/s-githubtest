@@ -25,7 +25,7 @@ jobs:
         run: |
           python './.github/workflows/scripts/upload_aab.py' \
           # 'com.example.your.package' \
-          'com.example.githubtestproject' \
+          'jp.co.githubtestproject' \
           #          'app/build/outputs/bundle/release/app-release.aab' \ # ここは環境によって変更
           'app/release/app-release.aab' \ # ここは環境によって変更
           './.github/workflows/account.json' # 必要に応じて暗号化したjsonを事前に復号化する
