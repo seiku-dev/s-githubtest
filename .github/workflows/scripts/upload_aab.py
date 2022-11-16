@@ -33,7 +33,7 @@ def main(argv):
   service_account_json = flags.service_account_json
 
   # サンプルではここがp12ファイルを利用していたため、サービスアカウントのjsonキーファイルで認証するように変更
-  credentials = ServiceAccountCredentials.from_json_keyfile_name('pc-api-6432661342110974448-165-705320bcabc8.json', scopes=scopes)
+  credentials = ServiceAccountCredentials.from_json_keyfile_name('app/pc-api-6432661342110974448-165-705320bcabc8.json', scopes=scopes)
   http = httplib2.Http()
   http = credentials.authorize(http)
 
