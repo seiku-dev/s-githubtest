@@ -14,7 +14,7 @@ TRACK = 'internal'  # or can be 'alpha', beta', 'production' or 'rollout'
 # workflow.yamlからの入力受付用
 argparser = argparse.ArgumentParser(add_help=False)
 argparser.add_argument('package_name',
-                       default='com.examole.app',
+                       default='com.example.githubtestproject',
                        help='The package name. Example: com.android.sample')
 argparser.add_argument('aab_file',
                        nargs='?',
