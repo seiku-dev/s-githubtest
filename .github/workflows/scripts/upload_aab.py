@@ -39,7 +39,7 @@ def main(argv):
 
   print('XXXXXXXXXX：2')
 
-  service = build('androidpublisher', 'v2', http=http)
+  service = build('androidpublisher', 'v3', http=http)
   package_name = 'jp.co.githubtestproject'
   aab_file = flags.aab_file
   print('XXXXXXXXXX：3')
