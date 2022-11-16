@@ -34,7 +34,7 @@ def findAllFile(base):
 def main(argv):
   print('XXXXXXXXXX：1')
   for i in findAllFile('./app/build'):
-      print(XXXXXXXXXX path:"%s"' % i)
+      print('XXXXXXXXXX：path:"%s"' % i)
 
   scopes = ['https://www.googleapis.com/auth/androidpublisher']
   flags = argparser.parse_args()
