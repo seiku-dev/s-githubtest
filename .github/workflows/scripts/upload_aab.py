@@ -48,9 +48,9 @@ def main(argv):
 
   try:
     edit_request = service.edits().insert(body={}, packageName='jp.co.githubtestproject')
-#     result = edit_request.execute()
-#     edit_id = result['id']
-    edit_id = '114149008785642718087'
+    result = edit_request.execute()
+    edit_id = result['id']
+#     edit_id = '114149008785642718087'
 
     print('Edit ID : "%s"' % edit_id)
 
