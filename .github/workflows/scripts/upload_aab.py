@@ -50,6 +50,7 @@ def main(argv):
     edit_id = result['id']
 
     print('XXXXXXXXXX：4')
+    print('XXXXXXXXXX：4：' % (result['id']))
     print('Edit ID : "%s"' % edit_id)
     print('XXXXXXXXXX：5')
 
