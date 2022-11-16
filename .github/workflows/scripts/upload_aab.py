@@ -32,10 +32,6 @@ def findAllFile(base):
             yield fullname
 
 def main(argv):
-  print('XXXXXXXXXX：1')
-  for i in findAllFile('./app/build'):
-      print('XXXXXXXXXX：path:"%s"' % i)
-
   scopes = ['https://www.googleapis.com/auth/androidpublisher']
   flags = argparser.parse_args()
 #   service_account_json = flags.service_account_json
@@ -45,11 +41,9 @@ def main(argv):
   http = httplib2.Http()
   http = credentials.authorize(http)
 
-  print('XXXXXXXXXX：2')
-
   service = build('androidpublisher', 'v3', http=http)
   package_name = 'jp.co.githubtestproject'
-  aab_file = 'app/build/outputs/bundle/release/app-release.aab'
+  aab_file = './app/build/outputs/bundle/release/app-release.aab'
   print('XXXXXXXXXX：3:aab_file:"%s"' % aab_file)
 
   try:
@@ -58,10 +52,7 @@ def main(argv):
 #     edit_id = result['id']
     edit_id = '114149008785642718087'
 
-    print('XXXXXXXXXX：4')
-#     print('XXXXXXXXXX：4：' % (result['id']))
     print('Edit ID : "%s"' % edit_id)
-    print('XXXXXXXXXX：5')
 
     # aabのアップロード(apkとはアップロード方法が異なるため注意)
     media = MediaFileUpload(aab_file, mimetype='application/octet-stream', resumable=True)
