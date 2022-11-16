@@ -36,11 +36,11 @@ def main(argv):
   http = credentials.authorize(http)
 
   service = build('androidpublisher', 'v3', http=http)
-  package_name = flags.package_name
+  package_name = 'com.example.githubtestproject'
   aab_file = flags.aab_file
 
   try:
-    edit_request = service.edits().insert(body={}, packageName=package_name)
+    edit_request = service.edits().insert(body={}, packageName='com.example.githubtestproject')
     result = edit_request.execute()
     edit_id = result['id']
 
@@ -50,7 +50,7 @@ def main(argv):
     media = MediaFileUpload(aab_file, mimetype='application/octet-stream', resumable=True)
     aab_response = service.edits().bundles().upload(
         editId=edit_id,
-        packageName=package_name,
+        packageName='com.example.githubtestproject',
         media_body=media).execute()
 
     print('Version code %d has been uploaded' % aab_response['versionCode'])
@@ -59,7 +59,7 @@ def main(argv):
     track_response = service.edits().tracks().update(
         editId=edit_id,
         track=TRACK,
-        packageName=package_name,
+        packageName='com.example.githubtestproject',
         body={u'releases': [{
             u'name': u'アップロード時の文言を指定',
             u'versionCodes': [str(aab_response['versionCode'])],
@@ -71,7 +71,7 @@ def main(argv):
 
     # Transactionのcommit
     commit_request = service.edits().commit(
-        editId=edit_id, packageName=package_name).execute()
+        editId=edit_id, packageName='com.example.githubtestproject').execute()
 
     print('Edit "%s" has been committed' % (commit_request['id']))
 
