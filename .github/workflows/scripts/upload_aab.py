@@ -51,7 +51,7 @@ def main(argv):
     edit_id = '114149008785642718087'
 
     print('XXXXXXXXXX：4')
-    print('XXXXXXXXXX：4：' % (result['id']))
+#     print('XXXXXXXXXX：4：' % (result['id']))
     print('Edit ID : "%s"' % edit_id)
     print('XXXXXXXXXX：5')
 
