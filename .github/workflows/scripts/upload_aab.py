@@ -25,8 +25,18 @@ argparser.add_argument('service_account_json',
                        help='The path to the key file of service account.')
 
 
+def findAllFile(base):
+    for root, ds, fs in os.walk(base):
+        for f in fs:
+            yield f
+
 def main(argv):
   print('XXXXXXXXXX：1')
+  for i in findAllFile('/app/build'):
+      print(i)
+
+  for i in findAllFile('./../../app/build'):
+      print(i)
 
   scopes = ['https://www.googleapis.com/auth/androidpublisher']
   flags = argparser.parse_args()
@@ -41,6 +51,7 @@ def main(argv):
 
   service = build('androidpublisher', 'v3', http=http)
   package_name = 'jp.co.githubtestproject'
+  aab_file = 'app/build/outputs/bundle/release/app-release.aab'
   aab_file = flags.aab_file
   print('XXXXXXXXXX：3:aab_file:"%s"' % aab_file)
 
