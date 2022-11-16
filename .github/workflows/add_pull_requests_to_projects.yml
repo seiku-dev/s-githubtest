@@ -1,0 +1,29 @@
+name: Add pull request to projects
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  add-to-project-1:
+    name: Add to Project 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.3.0
+        with:
+          # URL of the project to add issues to
+          project-url: https://github.com/users/ou-sei/projects/1
+          # A GitHub personal access token with write access to the project
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+#
+#  add-to-project-2:
+#    name: Add to Project 2
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/add-to-project@v0.3.0
+#        with:
+#          # URL of the project to add issues to
+#          project-url: https://github.com/users/ou-sei/projects/2
+#          # A GitHub personal access token with write access to the project
+#          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
