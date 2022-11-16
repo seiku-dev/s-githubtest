@@ -39,15 +39,16 @@ def main(argv):
 
   print('XXXXXXXXXX：2')
 
-  service = build('androidpublisher', 'v3', http=http)
+  service = build('androidpublisher', 'v2', http=http)
   package_name = 'jp.co.githubtestproject'
   aab_file = flags.aab_file
   print('XXXXXXXXXX：3')
 
   try:
     edit_request = service.edits().insert(body={}, packageName='jp.co.githubtestproject')
-    result = edit_request.execute()
-    edit_id = result['id']
+#     result = edit_request.execute()
+#     edit_id = result['id']
+    edit_id = '114149008785642718087'
 
     print('XXXXXXXXXX：4')
     print('XXXXXXXXXX：4：' % (result['id']))
