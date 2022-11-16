@@ -26,7 +26,7 @@ argparser.add_argument('service_account_json',
 
 
 def main(argv):
-  print('XXXXXXXXXX')
+  print('XXXXXXXXXX：1')
 
   scopes = ['https://www.googleapis.com/auth/androidpublisher']
   flags = argparser.parse_args()
@@ -37,16 +37,21 @@ def main(argv):
   http = httplib2.Http()
   http = credentials.authorize(http)
 
+  print('XXXXXXXXXX：2')
+
   service = build('androidpublisher', 'v3', http=http)
   package_name = 'jp.co.githubtestproject'
   aab_file = flags.aab_file
+  print('XXXXXXXXXX：3')
 
   try:
     edit_request = service.edits().insert(body={}, packageName='jp.co.githubtestproject')
     result = edit_request.execute()
     edit_id = result['id']
+  print('XXXXXXXXXX：4')
 
     print('Edit ID : "%s"' % edit_id)
+  print('XXXXXXXXXX：5')
 
     # aabのアップロード(apkとはアップロード方法が異なるため注意)
     media = MediaFileUpload(aab_file, mimetype='application/octet-stream', resumable=True)
@@ -54,6 +59,7 @@ def main(argv):
         editId=edit_id,
         packageName='jp.co.githubtestproject',
         media_body=media).execute()
+  print('XXXXXXXXXX：6')
 
     print('Version code %d has been uploaded' % aab_response['versionCode'])
 
@@ -67,6 +73,7 @@ def main(argv):
             u'versionCodes': [str(aab_response['versionCode'])],
             u'status': u'completed',
         }]}).execute()
+  print('XXXXXXXXXX：7')
 
     print('Track %s is set with releases: %s' % (
         track_response['track'], str(track_response['releases'])))
@@ -76,10 +83,12 @@ def main(argv):
         editId=edit_id, packageName='jp.co.githubtestproject').execute()
 
     print('Edit "%s" has been committed' % (commit_request['id']))
+  print('XXXXXXXXXX：8')
 
   except client.AccessTokenRefreshError:
     print ('The credentials have been revoked or expired, please re-run the '
            'application to re-authorize')
+  print('XXXXXXXXXX：9')
 
 if __name__ == '__main__':
   main(sys.argv)
