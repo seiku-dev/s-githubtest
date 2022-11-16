@@ -25,11 +25,11 @@ argparser = argparse.ArgumentParser(add_help=False)
 #                        nargs='?',
 #                        help='The path to the key file of service account.')
 
-
 def findAllFile(base):
     for root, ds, fs in os.walk(base):
         for f in fs:
-            yield f
+            fullname = os.path.join(root, f)
+            yield fullname
 
 def main(argv):
   print('XXXXXXXXXX：1')
