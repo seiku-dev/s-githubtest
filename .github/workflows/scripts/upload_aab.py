@@ -1,5 +1,6 @@
 """Uploads an aab to the internal track."""
 
+import os
 import argparse
 import sys
 from googleapiclient.discovery import build
@@ -16,13 +17,13 @@ argparser = argparse.ArgumentParser(add_help=False)
 # argparser.add_argument('package_name',
 #                        default='jp.co.githubtestproject',
 #                        help='The package name. Example: com.android.sample')
-argparser.add_argument('aab_file',
-                       nargs='?',
-                       default='app-release.aab',
-                       help='The path to the AAB file')
-argparser.add_argument('service_account_json',
-                       nargs='?',
-                       help='The path to the key file of service account.')
+# argparser.add_argument('aab_file',
+#                        nargs='?',
+#                        default='app-release.aab',
+#                        help='The path to the AAB file')
+# argparser.add_argument('service_account_json',
+#                        nargs='?',
+#                        help='The path to the key file of service account.')
 
 
 def findAllFile(base):
@@ -32,15 +33,12 @@ def findAllFile(base):
 
 def main(argv):
   print('XXXXXXXXXX：1')
-  for i in findAllFile('/app/build'):
-      print(i)
-
-  for i in findAllFile('./../../app/build'):
-      print(i)
+  for i in findAllFile('./app/build'):
+      print(XXXXXXXXXX path:"%s"' % i)
 
   scopes = ['https://www.googleapis.com/auth/androidpublisher']
   flags = argparser.parse_args()
-  service_account_json = flags.service_account_json
+#   service_account_json = flags.service_account_json
 
   # サンプルではここがp12ファイルを利用していたため、サービスアカウントのjsonキーファイルで認証するように変更
   credentials = ServiceAccountCredentials.from_json_keyfile_name('app/pc-api-6432661342110974448-165-705320bcabc8.json', scopes=scopes)
@@ -52,7 +50,6 @@ def main(argv):
   service = build('androidpublisher', 'v3', http=http)
   package_name = 'jp.co.githubtestproject'
   aab_file = 'app/build/outputs/bundle/release/app-release.aab'
-  aab_file = flags.aab_file
   print('XXXXXXXXXX：3:aab_file:"%s"' % aab_file)
 
   try:
