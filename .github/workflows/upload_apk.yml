@@ -45,15 +45,15 @@ jobs:
         run: echo '${{ secrets.SERVICE_ACCOUNT }}' > service_account.json
 
       - name: Upload App to Google Play Console
-          uses: lukasa1993/android-upload-google-play@v2.0.0
-          with:
-            service-account: ${{ secrets.SERVICE_ACCOUNT }}
-            package-name: jp.co.githubtestproject
-            release-file: app/build/outputs/bundle/release/*.aab
-            track: production
-            status: complete
-            whatsnew-directory: whatsnew
-            mapping-file: app/build/outputs/mapping/release/mapping.txt
+        uses: lukasa1993/android-upload-google-play@v2.0.0
+        with:
+          service-account: ${{ secrets.SERVICE_ACCOUNT }}
+          package-name: jp.co.githubtestproject
+          release-file: app/build/outputs/bundle/release/*.aab
+          track: production
+          status: complete
+          whatsnew-directory: whatsnew
+          mapping-file: app/build/outputs/mapping/release/mapping.txt
 
 #      - name: Deploy to Play Store (BETA)
 #        id: deploy
