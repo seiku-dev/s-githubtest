@@ -29,6 +29,11 @@ jobs:
         id: buildRelease
         run: ./gradlew assembleRelease
 
+      - name: Build Release bundle# リリース用ビルド
+        shell: bash
+        run: |
+          ./gradlew bundleRelease
+
       - uses: actions/upload-artifact@v2
         name: upload build output
         with:
