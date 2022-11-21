@@ -48,7 +48,7 @@ jobs:
         uses: lukasa1993/android-upload-google-play@v2.0.0
         with:
 #          service-account: ${{ secrets.SERVICE_ACCOUNT }}
-          serviceAccountJson: service_account.json
+          service-account: service_account.json
           package-name: jp.co.githubtestproject
           release-file: app/build/outputs/bundle/release/*.aab
           track: production
