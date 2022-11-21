@@ -61,5 +61,5 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: jp.co.githubtestproject
-          releaseFiles: app/build/outputs/bundle/release/*.aab
+          releaseFiles: ${{ github.workspace }}/app/build/outputs/bundle/release/*.aab
           track: production
