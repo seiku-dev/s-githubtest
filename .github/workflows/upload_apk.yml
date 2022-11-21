@@ -45,5 +45,5 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: jp.co.githubtestproject
-          releaseFiles: app/release/app-release.apk
+          releaseFiles: ${{ github.workspace }}/app/build/outputs/apk/release/app-release.apk
           track: internal
