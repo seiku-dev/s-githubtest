@@ -32,13 +32,24 @@ jobs:
       - uses: actions/upload-artifact@v2
         name: upload build output
         with:
-         name: 下载的压缩包名字
-         path: ${{ github.workspace }}/app/build/outputs/apk/release
+          name: 下载的压缩包名字
+          path: ${{ github.workspace }}/app/build/outputs/apk/release
 
       - name: Create service_account.json
         id: createServiceAccount
         run: echo '${{ secrets.SERVICE_ACCOUNT }}' > service_account.json
 
+      #      - name: Upload App to Google Play Console
+      #          uses: lukasa1993/android-upload-google-play@v2.0.0
+      #          with:
+      #            service-account: ${{ secrets.SERVICE_ACCOUNT }}
+      #            package-name: jp.co.githubtestproject
+      #            release-file: app/build/outputs/bundle/release/*.aab
+      #            track: production
+      #            status: complete
+      #            whatsnew-directory: whatsnew
+      #            mapping-file: app/build/outputs/mapping/release/mapping.txt
+      #
       - name: Deploy to Play Store (BETA)
         id: deploy
         uses: r0adkll/upload-google-play@v1
@@ -46,4 +57,4 @@ jobs:
           serviceAccountJson: service_account.json
           packageName: jp.co.githubtestproject
           releaseFiles: app/build/outputs/bundle/release/*.aab
-          track: internal
+          track: production
